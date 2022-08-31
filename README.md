@@ -6,6 +6,12 @@
 
 This is a dynamic command line program that will dynamically create cards with employee information based on user input provided.
 
+Here is a picture and a link to the completed HTML file in the browser: file:///Users/tommyboileau/Desktop/team-profile/dist/index.html
+![An image of the profile HTML page.](<assets/images/Screen%20Shot%202022-08-31%20at%204.19.35%20PM%20(2).png>)
+
+Below is a video of the application running, showing the tests passing and the final HTML that is generated. Additionally, you can click this link: https://drive.google.com/file/d/16gcAXroSIlpcD45x2lmrYB9MD1ZUAN2d/view
+![A gif showing the application in action.](assets/images/Untitled_%20Aug%2031%2C%202022%204_14%20PM.gif)
+
 ## Table of Contents
 
 - [Installation](#installation)
