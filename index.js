@@ -58,7 +58,7 @@ const addEmployee = () => {
         type: "list",
         name: "role",
         message: "Please choose your employee's role",
-        choices: ["Engineer", "Intern"],
+        choices: ["Engineer", "Intern", "Finish building team"],
       },
       {
         type: "input",
@@ -80,12 +80,26 @@ const addEmployee = () => {
         name: "github",
         message: "Please enter the employee's github username.",
         when: (input) => input.role === "Engineer",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter the employee's github username!");
+          }
+        },
       },
       {
         type: "input",
         name: "school",
         message: "Please enter the intern's school",
         when: (input) => input.role === "Intern",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter the intern's school!");
+          }
+        },
       },
       {
         type: "confirm",
@@ -123,11 +137,15 @@ const addEmployee = () => {
 
 // function to generate HTML page with fs
 const writeFile = (data) => {
-  fs.writeFile("./dist/index.js", (data) => {
-    //let user know the profile has been created
-    console.log(
-      "Your team profile has been successfully created! Please check out the index.html"
-    );
+  fs.writeFile("./dist/index.html", data, (err) => {
+    if (err) {
+      return;
+    } else {
+      //let user know the profile has been created
+      console.log(
+        "Your team profile has been successfully created! Please check out the index.html"
+      );
+    }
   });
 };
 
@@ -141,4 +159,7 @@ addManager()
   })
   .then((data) => {
     return writeFile(data);
+  })
+  .catch((err) => {
+    console.log(err);
   });
