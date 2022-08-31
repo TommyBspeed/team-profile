@@ -7,26 +7,27 @@ describe("Employee", () => {
     const employee = new Employee();
     expect(typeof employee).toBe("object");
   });
-
+  //make sure it can set name
   it("Can set a name", () => {
     const name = "Tommy";
     const employee = new Employee(name);
     expect(employee.name).toBe(name);
   });
-
+  //make sure it can set id
   it("Can set an id", () => {
     const empId = 34;
     const employee = new Employee("Tommy", empId);
     expect(employee.id).toBe(empId);
   });
-
+  //make sure it can set email
   it("Can set employee email", () => {
     const empEmail = "tommybspeed@gmail.com";
-    const employee = new Employee("Foo", 1, empEmail);
+    const employee = new Employee("Tommy", 34, empEmail);
     expect(employee.email).toBe(empEmail);
   });
 
   //check the functions on the employee
+  //check getName()
   describe("getName", () => {
     it("Can get name when called", () => {
       const empName = "Tommy";
@@ -34,7 +35,7 @@ describe("Employee", () => {
       expect(employee.getName()).toBe(empName);
     });
   });
-
+  //check getId()
   describe("getId", () => {
     it("Can get id when called", () => {
       const empId = 34;
@@ -42,7 +43,7 @@ describe("Employee", () => {
       expect(employee.getId()).toBe(empId);
     });
   });
-
+  //check getEmail()
   describe("getEmail", () => {
     it("Can get email when called", () => {
       const empEmail = "tommybspeed@gmail.com";
@@ -50,7 +51,7 @@ describe("Employee", () => {
       expect(employee.getEmail()).toBe(empEmail);
     });
   });
-
+  //check getRole()
   describe("getRole", () => {
     it("should show the role of them employee, in this case 'employee'", () => {
       const empRole = "Employee";

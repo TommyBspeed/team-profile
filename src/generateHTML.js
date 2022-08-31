@@ -1,5 +1,5 @@
-// create Manager card
-const generateManager = function (manager) {
+// create card specific to Manager
+const generateManager = (manager) => {
   return `
     <div class="col-4 mt-4">
         <div class="card h-100">
@@ -19,8 +19,8 @@ const generateManager = function (manager) {
     `;
 };
 
-// create Engineer card
-const generateEngineer = function (engineer) {
+// create card specific to Engineer
+const generateEngineer = (engineer) => {
   return `
     <div class="col-4 mt-4">
         <div class="card h-100">
@@ -40,8 +40,8 @@ const generateEngineer = function (engineer) {
     `;
 };
 
-// create Intern card
-const generateIntern = function (intern) {
+// create card specific to Intern
+const generateIntern = (intern) => {
   return `
     <div class="col-4 mt-4">
         <div class="card h-100">
@@ -69,21 +69,21 @@ generateHTML = (data) => {
     const employee = data[i];
     const role = employee.getRole();
 
-    // call manager function
+    // call generateManager()
     if (role === "Manager") {
       const managerCard = generateManager(employee);
 
       pageArray.push(managerCard);
     }
 
-    // call engineer function
+    // call generateEngineer()
     if (role === "Engineer") {
       const engineerCard = generateEngineer(employee);
 
       pageArray.push(engineerCard);
     }
 
-    // call intern function
+    // call generateIntern()
     if (role === "Intern") {
       const internCard = generateIntern(employee);
 
@@ -91,16 +91,16 @@ generateHTML = (data) => {
     }
   }
 
-  // joining strings
+  // join strings
   const employeeCards = pageArray.join("");
 
   // return to generated page
-  const generateTeam = generateTeamPage(employeeCards);
+  const generateTeam = generateTeamProfiles(employeeCards);
   return generateTeam;
 };
 
-// generate html page
-const generateTeamPage = function (employeeCards) {
+// generate html profiles
+const generateTeamProfiles = (employeeCards) => {
   return `
   <!DOCTYPE html>
   <html lang="en">
@@ -109,8 +109,7 @@ const generateTeamPage = function (employeeCards) {
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>Team Profile</title>
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css">
-      <link href="https://fonts.googleapis.com/css?family=Public+Sans:300i,300,500&display=swap" rel="stylesheet">
-      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css" integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
       <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
       <link rel="stylesheet" href="style.css">
   </head>
@@ -130,14 +129,13 @@ const generateTeamPage = function (employeeCards) {
       </main>
       
   </body>
-  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous" />
   </html>
 
 
 `;
 };
 
-// export to index
+// export to index.js
 module.exports = generateHTML;
