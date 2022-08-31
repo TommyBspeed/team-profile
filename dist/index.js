@@ -1,10 +1,10 @@
 // require link to template
-const generateHTML = require("./src/generateHTML");
+const generateHTML = require("../src/generateHTML");
 
 // require team profiles
-const Manager = require("./lib/Manager");
-const Engineer = require("./lib/Engineer");
-const Intern = require("./lib/Intern");
+const Manager = require("../lib/Manager");
+const Engineer = require("../lib/Engineer");
+const Intern = require("../lib/Intern");
 
 // require node modules
 const fs = require("fs");
@@ -123,7 +123,7 @@ const addEmployee = () => {
 
 // function to generate HTML page with fs
 const writeFile = (data) => {
-  fs.writeFile("./dist/index.html", (data) => {
+  fs.writeFile("./dist/index.js", (data) => {
     //let user know the profile has been created
     console.log(
       "Your team profile has been successfully created! Please check out the index.html"
