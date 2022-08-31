@@ -1,10 +1,10 @@
 // require link to template
-const generateHTML = require("../src/generateHTML");
+const generateHTML = require("./src/generateHTML");
 
 // require team profiles
-const Manager = require("../lib/Manager");
-const Engineer = require("../lib/Engineer");
-const Intern = require("../lib/Intern");
+const Manager = require("./lib/Manager");
+const Engineer = require("./lib/Engineer");
+const Intern = require("./lib/Intern");
 
 // require node modules
 const fs = require("fs");
