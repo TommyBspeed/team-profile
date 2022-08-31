@@ -1,50 +1,26 @@
 // get the intern constructor
-// const { describe, it } = require("node:test");
 const Intern = require("../lib/Intern");
+//run tests for intern specific params
 
-// create intern object
-describe("Intern class"),
-  () => {
-    it("creates an Intern object", () => {
-      const intern = new Intern(
-        "Tommy",
-        34,
-        "TommyBspeed@gmail",
-        "University of Denver"
-      );
+test("Can set school via constructor", () => {
+  const empSchool = "University of Denver";
+  const intern = new Intern("Tommy", 34, "tommybspeed@gmail.com", empSchool);
+  expect(intern.school).toBe(empSchool);
+});
 
-      expect(intern.school).toEqual(expect.any(String));
-    });
-  };
+test('getRole() should return "Intern"', () => {
+  const empRole = "Intern";
+  const intern = new Intern(
+    "Tommy",
+    34,
+    "tommybspeed@gmail.com",
+    "University of Denver"
+  );
+  expect(intern.getRole()).toBe(empRole);
+});
 
-// test getSchool()
-describe("getSchool"),
-  () => {
-    it("gets interns school", () => {
-      const intern = new Intern(
-        "Tommy",
-        34,
-        "TommyBspeed@gmail",
-        "University of Denver"
-      );
-
-      expect(intern.getSchool()).toEqual(
-        expect.stringContaining(intern.school.toString())
-      );
-    });
-  };
-
-// test getRole()
-describe("getRole"),
-  () => {
-    it("gets role of intern", () => {
-      const intern = new Intern(
-        "Tommy",
-        34,
-        "TommyBspeed@gmail",
-        "University of Denver"
-      );
-
-      expect(intern.getRole()).toEqual("Intern");
-    });
-  };
+test("Can get school getSchool() is called", () => {
+  const empSchool = "University of Denver";
+  const intern = new Intern("Tommy", 34, "tommybspeed@gmail.com", empSchool);
+  expect(intern.getSchool()).toBe(empSchool);
+});

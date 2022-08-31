@@ -1,52 +1,61 @@
 // get the Employee constructor
-// const { describe, it } = require("node:test");
-// const { describe } = require("node:test");
 const Employee = require("../lib/Employee");
 
-// create employee object
-describe("Employee class"),
-  () => {
-    it("creates an emplyee object.", () => {
-      const employee = new Employee("Tommy", 34, "TommyBspeed@gmail.com");
+// Create the employee object
+describe("Employee", () => {
+  it("creates a new employee object", () => {
+    const employee = new Employee();
+    expect(typeof employee).toBe("object");
+  });
 
-      expect(employee.name).toEqual(expect.any(String));
-      expect(employee.id).toEqual(expect.any(Number));
-      expect(employee.email).toEqual(expect.any(String));
+  it("Can set a name", () => {
+    const name = "Tommy";
+    const employee = new Employee(name);
+    expect(employee.name).toBe(name);
+  });
+
+  it("Can set an id", () => {
+    const empId = 34;
+    const employee = new Employee("Tommy", empId);
+    expect(employee.id).toBe(empId);
+  });
+
+  it("Can set employee email", () => {
+    const empEmail = "tommybspeed@gmail.com";
+    const employee = new Employee("Foo", 1, empEmail);
+    expect(employee.email).toBe(empEmail);
+  });
+
+  //check the functions on the employee
+  describe("getName", () => {
+    it("Can get name when called", () => {
+      const empName = "Tommy";
+      const employee = new Employee(empName);
+      expect(employee.getName()).toBe(empName);
     });
-  };
-// test getName()
-describe("getName"),
-  () => {
-    it("gets employee name", () => {
-      const employee = new Employee("Tommy", 34, "TommyBspeed@gmail.com");
+  });
 
-      expect(employee.getName()).toEqual(expect.any(String));
+  describe("getId", () => {
+    it("Can get id when called", () => {
+      const empId = 34;
+      const employee = new Employee("Tommy", empId);
+      expect(employee.getId()).toBe(empId);
     });
-  };
-// test getId()
-describe("getId"),
-  () => {
-    test("gets employee ID", () => {
-      const employee = new Employee("Tommy", 34, "TommyBspeed@gmail.com");
+  });
 
-      expect(employee.getId()).toEqual(expect.any(Number));
+  describe("getEmail", () => {
+    it("Can get email when called", () => {
+      const empEmail = "tommybspeed@gmail.com";
+      const employee = new Employee("Tommy", 34, empEmail);
+      expect(employee.getEmail()).toBe(empEmail);
     });
-  };
-// test getEmail()
-describe("getEmail"),
-  () => {
-    it("gets employee email", () => {
-      const employee = new Employee("Tommy", 34, "TommyBspeed@gmail.com");
+  });
 
-      expect(employee.getEmail()).toEqual(
-        expect.stringContaining(employee.email.toString())
-      );
+  describe("getRole", () => {
+    it("should show the role of them employee, in this case 'employee'", () => {
+      const empRole = "Employee";
+      const employee = new Employee("Tommy", 34, "tommybspeed@gmail.com");
+      expect(employee.getRole()).toBe(empRole);
     });
-  };
-// test getRole()
-describe("getRole");
-it("gets role of employee", () => {
-  const employee = new Employee("Tommy", 34, "TommyBspeed@gmail.com");
-
-  expect(employee.getRole()).toEqual("Employee");
+  });
 });
